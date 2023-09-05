@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background: #34495e;
+}
+
+.text {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    color: #c8d6e5;
+    padding: 20px;
+}
+
+.input {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.input input {
+    background-color: #8395a7;
+    color: #222f3e;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.input input:hover {
+    background-color: #6b7b8a;
+}
+
+.input button {
+    background-color: #222f3e;
+    color: #8395a7;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.input button:hover {
+    background-color: #34495e;
+    color: #c8d6e5;
+}
+
+#result {
+    width: auto;
+    text-align: center;
+    color: #c8d6e5;
+    font-size: 50px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+    </style>
+      <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById("input-km");
+    const button = document.getElementById("btn");
+    const finalResult = document.getElementById("result");
+
+    button.addEventListener('click', function() {
+        const kilometer = parseFloat(input.value); 
+        if (!isNaN(kilometer)) {
+            finalResult.innerHTML = converter(kilometer);
+        } else {
+            finalResult.innerHTML = "Please enter a valid number.";
+        }
+    });
+
+    const converter = (kilometer) => {
+        const miles = kilometer * 0.621371;
+        return miles.toFixed(0);
+    };
+});
+
+      </script>
+    <title>Converter</title>
+</head>
+<body>
+        <div class="text">
+            <h1>Hello there! This is a simple converter from kilometers to miles, if you're american and are struggling to understand what the rest of the world is saying with KM/H (lol), you can use this to check the speed of your car, etc...</h1>
+        </div>
+        <div class="input">
+            <input id="input-km" type="number" placeholder="Enter the kilometer value"/>
+            <button type="button" id="btn">Check Mile value</button>
+        </div>
+        <p id="result"></p>
+</body>
+</html>
